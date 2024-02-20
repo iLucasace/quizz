@@ -158,13 +158,47 @@ function createQuestion(i) {
 
         //Add mouse click event
         answerTemplate.addEventListener('click', function() {
-            console.log(this);
+            checkAnswer(this);
         });
     });
 
     //Increase the question number
     actualQuestion++;
 
+}
+
+//Check user answer
+function checkAnswer(btn) {
+    const buttons = answersBox.querySelectorAll('button');
+
+    buttons.forEach(function(button) {
+        if(button.getAttribute('correct-answer') == "true") {
+            button.classList.add("correct-answer");
+
+            //Check if it's correct
+            if(btn == button) {
+                //Increase the points
+                points++;
+            }
+        } else {
+            button.classList.add("wrong-answer");
+        }
+    });
+
+    nextQuestion();
+}
+
+//Display the next question
+function nextQuestion() {
+    setTimeout(function() {
+        //Check if it's not the last question
+        if(actualQuestion >= questions.length) {
+            //Display final score
+        }
+
+        createQuestion(actualQuestion);
+
+    }, 2000);
 }
 
 init();
