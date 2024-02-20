@@ -204,8 +204,7 @@ function nextQuestion() {
 
 //Display final score
 function showFinalScore() {
-    quizzContainer.classList.toggle('hide');
-    scoreContainer.classList.toggle('hide');
+    hideOrShowQuizz();
 
     //Calculate score
     const score = ((points / questions.length) * 100).toFixed(2);
@@ -221,5 +220,20 @@ function showFinalScore() {
     const totalQuestions = document.querySelector('#questions-qty');
     totalQuestions.textContent = questions.length;
 }
+
+//Hide or show score
+function hideOrShowQuizz() {
+    quizzContainer.classList.toggle('hide');
+    scoreContainer.classList.toggle('hide');
+}
+
+//Restart quizz
+const restartBtn = document.querySelector('#restart');
+restartBtn.addEventListener('click', function() {
+    actualQuestion = 0;
+    points = 0;
+    hideOrShowQuizz();
+    init();
+});
 
 init();
