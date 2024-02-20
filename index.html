@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quizz</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/script.js" defer></script>
@@ -10,25 +11,19 @@
 <body>
     <h1 id="main-title">Quizz</h1>
     <!-- SCORE BOARD -->
-    <div id="score-container">
+    <div id="score-container" class="hide">
+        <h2>Congratulations!</h2>
         <p id="display-score"><span>90</span>%</p>
         <p>You got <span id="correct-answer">0</span> of <span id="questions-qty">10</span> questions correct!</p>
         <button id="restart">Restart</button>
     </div>
     <!-- QUIZZ CONTAINER -->
     <div id="quizz-container">
-        <p id="question">
-            <span id="question-number">1</span> - <span id="question-text">What is the unit of measurement for meters?</span>
-        </p>
-        <div id="answers-box">
-            <button class="correct-answer"><span class="btn-letter">A</span> <span class="question-answer">m</span></button>
-            <button class="wrong-answer"><span class="btn-letter">B</span> <span class="question-answer">ms</span></button>
-            <button><span class="btn-letter">C</span> <span class="question-answer">km</span></button>
-            <button><span class="btn-letter">D</span> <span class="question-answer">r</span></button>
-        </div>
+        <p id="question"><span id="question-number">1</span> - <span id="question-text">What are the units of measurement in the USA?</span></p>
+        <div id="answers-box"></div>
     </div>
 
     <!-- ANSWER TEMPLATE -->
-    <button><span class="answer-template hide">A</span> <span class="question-answer">m</span></button>
+    <button class="answer-template hide"><span class="btn-letter"></span> <span class="question-answer"></span></button>
 </body>
 </html>
