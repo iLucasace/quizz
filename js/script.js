@@ -164,7 +164,6 @@ function createQuestion(i) {
 
     //Increase the question number
     actualQuestion++;
-
 }
 
 //Check user answer
@@ -194,11 +193,33 @@ function nextQuestion() {
         //Check if it's not the last question
         if(actualQuestion >= questions.length) {
             //Display final score
+            showFinalScore();
+            return;
         }
 
         createQuestion(actualQuestion);
 
     }, 2000);
+}
+
+//Display final score
+function showFinalScore() {
+    quizzContainer.classList.toggle('hide');
+    scoreContainer.classList.toggle('hide');
+
+    //Calculate score
+    const score = ((points / questions.length) * 100).toFixed(2);
+
+    const displayScore = document.querySelector('#display-score span');
+    displayScore.textContent = score.toString();
+
+    //Display total correct answers
+    const correctAnswers = document.querySelector('#correct-answer');
+    correctAnswers.textContent = points;
+
+    //Display total questions
+    const totalQuestions = document.querySelector('#questions-qty');
+    totalQuestions.textContent = questions.length;
 }
 
 init();
