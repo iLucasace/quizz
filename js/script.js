@@ -1,5 +1,5 @@
 //Variables
-const quetion = document.querySelector('#question');
+const question = document.querySelector('#question');
 const answersBox = document.querySelector('#answers-box');
 const quizzContainer = document.querySelector('#quizz-container');
 const scoreContainer = document.querySelector('#score-container');
@@ -136,6 +136,34 @@ function createQuestion(i) {
 
     questionText.textContent = questions[i].question;
     questionNumber.textContent = i + 1;
+
+    questions[i].answers.forEach(function(answer, i) {
+        //Create the quizz buttons template
+        const answerTemplate = document.querySelector('.answer-template').cloneNode(true);
+
+        const letterBtn = answerTemplate.querySelector('.btn-letter');
+        const answerText = answerTemplate.querySelector('.question-answer');
+
+        letterBtn.textContent = letters[i];
+        answerText.textContent = answer['answer'];
+
+        answerTemplate.setAttribute("correct-answer", answer['correct']);
+
+        //Remove hide and template class
+        answerTemplate.classList.remove('hide');
+        answerTemplate.classList.remove('answer-template');
+
+        //Display the alternatives
+        answersBox.appendChild(answerTemplate);
+
+        //Add mouse click event
+        answerTemplate.addEventListener('click', function() {
+            console.log(this);
+        });
+    });
+
+    //Increase the question number
+    actualQuestion++;
 
 }
 
