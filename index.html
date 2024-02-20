@@ -8,6 +8,27 @@
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <h1>Hello!</h1>
+    <h1 id="main-title">Quizz</h1>
+    <!-- SCORE BOARD -->
+    <div id="score-container">
+        <p id="display-score"><span>90</span>%</p>
+        <p>You got <span id="correct-answer">0</span> of <span id="questions-qty">10</span> questions correct!</p>
+        <button id="restart">Restart</button>
+    </div>
+    <!-- QUIZZ CONTAINER -->
+    <div id="quizz-container">
+        <p id="question">
+            <span id="question-number">1</span> - <span id="question-text">What is the unit of measurement for meters?</span>
+        </p>
+        <div id="answers-box">
+            <button class="correct-answer"><span class="btn-letter">A</span> <span class="question-answer">m</span></button>
+            <button class="wrong-answer"><span class="btn-letter">B</span> <span class="question-answer">ms</span></button>
+            <button><span class="btn-letter">C</span> <span class="question-answer">km</span></button>
+            <button><span class="btn-letter">D</span> <span class="question-answer">r</span></button>
+        </div>
+    </div>
+
+    <!-- ANSWER TEMPLATE -->
+    <button><span class="answer-template hide">A</span> <span class="question-answer">m</span></button>
 </body>
 </html>
